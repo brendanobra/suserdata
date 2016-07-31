@@ -2,6 +2,10 @@ name := "SUserData"
 
 version := "0.1-SNAPSHOT"
 
-scalaVersion := "2.10.7"
+scalaVersion := "2.11.7"
 
 organization := "org.obrafamily"
+
+libraryDependencies += "org.scalactic" %% "scalactic" % "2.2.6"
+
+libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"

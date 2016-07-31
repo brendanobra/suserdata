@@ -8,11 +8,25 @@ import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream
   */
 class UserData extends Format {
 
-  def output():CloudInitOutputFormat = {
-    TextOutputFormat()
+  /*
+  Detects #!
+   */
+  def willExecute() = {
+
+ }
+  def isBash() = {
 
   }
 
+  /*
+  starts with #cloud-config
+   */
+  def isCloudConfig() = {
+
+  }
+  def output():CloudInitOutputFormat = {
+    TextOutputFormat()
+  }
 }
 object UserData{
   def apply() = {

@@ -1,12 +1,13 @@
 package com.luserland.cloudinit.userdata
 
+import com.luserland.cloudinit.userdata.dsl.{CloudInitType, UserDataType}
 import com.luserland.cloudinit.userdata.formats.{TextOutputFormat, CloudInitOutputFormat}
 import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream
 
 /**
   * Created by brendan on 7/31/16.
   */
-class UserData extends Format {
+class UserData(userDataType:UserDataType) extends Format {
 
   /*
   Detects #!
@@ -25,11 +26,11 @@ class UserData extends Format {
 
   }
   def output():CloudInitOutputFormat = {
-    TextOutputFormat()
+    TextOutputFormat(userDataType)
   }
 }
 object UserData{
   def apply() = {
-    new UserData
+    new UserData(CloudInitType)
   }
 }
